@@ -1,4 +1,14 @@
-#beastColumns{
+#beastContainer{
+  border: 3px solid black;
   display: inline-block;
-  border: 1px, solid black;
+  width: 300;
+  height: max-content;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+#beastText{
+  margin-top: 3%;
+  color: bisque;
+  padding: 3%;
 }

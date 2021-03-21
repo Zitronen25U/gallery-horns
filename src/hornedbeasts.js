@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import CardColumns from 'react-bootstrap/CardColumns';
 import './beast.css';
+import CardGroup from 'react-bootstrap/CardGroup';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 
 class HornedBeasts extends React.Component {
@@ -18,24 +19,21 @@ class HornedBeasts extends React.Component {
 
   render(){
     return(
-      <CardColumns>
-          <Card
-           id="beastColumns" 
-           style={{ width: '18rem' }}
-           onClick={this.addLikes}
-           >
-          <Card.Img width="200" variant="top" src={this.props.src} />
-          <Card.Body>
-          <Card.Title>{this.props.title}</Card.Title>
-          <Card.Text>
-            {this.props.description}
-           </Card.Text>
-          <Card.Text>
-          ❤️ = {this.state.likes}
-          </Card.Text>
-          </Card.Body>
+      <div id="beastContainer" onClick={() => this.props.handleModalShow(this.props.index)}>
+        <CardGroup >
+          <Card>
+              <Card.Title>{this.props.title}</Card.Title>
+              <Card.Img variant="top" src={this.props.src} width={300} />
+              <Card.Body>
+              <Card.Text id="beastText">
+                {this.props.description}
+              </Card.Text>
+              <Card.Text> ❤️ {this.state.likes}</Card.Text>
+            </Card.Body>
           </Card>
-      </CardColumns>
+        </CardGroup>
+        <Button onClick={() => this.addLikes}>CLICK ME TO LIKE THE {this.props.title}</Button>
+      </div>
     );
   }
 }
