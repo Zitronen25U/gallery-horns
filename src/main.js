@@ -1,6 +1,7 @@
 import React from 'react';
 import HornedBeasts from './hornedbeasts';
 import data from './data.json';
+import CardDeck from 'react-bootstrap/CardDeck';
 
 
 class Main extends React.Component{
@@ -14,18 +15,21 @@ class Main extends React.Component{
   
   render(){
     return(
-      <div id="beastContainer">
+      <div id="beasts">
+        <CardDeck>
+
         {data.map((beast, index) => (
           <div key={index}>
-           <HornedBeasts />
+           <HornedBeasts 
             src = {beast.image_url}
             title = {beast.title}
             description = {beast.description}
-          </div>
-      )) 
+            />
 
+          </div>
+        )) 
       }
-        
+      </CardDeck>
       </div>
     );
   }
