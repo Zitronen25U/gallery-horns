@@ -31,7 +31,7 @@ class HornedBeasts extends React.Component {
             {this.props.description}
            </Card.Text>
           <Card.Text>
-            👍 = {this.state.likes}
+          ❤️ = {this.state.likes}
           </Card.Text>
           </Card.Body>
           </Card>
