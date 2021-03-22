@@ -6,30 +6,23 @@ import CardDeck from 'react-bootstrap/CardDeck';
 
 class Main extends React.Component{
 
- constructor(props){
-   super(props);
-   this.state = {
-     beastData: data
-   }
- }
-  
   render(){
     return(
       <div id="beasts">
-        <CardDeck>
-
-        {data.map((beast, index) => (
-          <div key={index}>
+        <>
+        {this.props.newData.map((beast, index) => (
            <HornedBeasts 
+            key={index}
+            width={100}
             src = {beast.image_url}
             title = {beast.title}
             description = {beast.description}
+            handleModalShow={this.props.handleModalShow}
+            index={index}
             />
-
-          </div>
         )) 
       }
-      </CardDeck>
+      </>
       </div>
     );
   }
