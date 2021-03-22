@@ -4,6 +4,7 @@ import Main from './main';
 import data from './data.json';
 import SelectedBeast from './selectedBeast';
 import Header from './header';
+import HornForm from './hornform';
 
 class App extends React.Component {
   constructor(props){
@@ -11,7 +12,8 @@ class App extends React.Component {
     this.state = {
       data: data,
       show: false,
-      selectedBeast: {}
+      selectedBeast: {},
+      slectedHorn: "ALL"
     }
   }
 
@@ -24,11 +26,21 @@ class App extends React.Component {
     this.setState({show: false})
   }
 
+  updateHorn = (e) => {
+    e.preventDefault();
+    this.setState({slectedHorn: e.target.value})
+    console.log(e.target.value)
+  }
+
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <Header />
+
+          <HornForm 
+          updateHorn={this.updateHorn}
+          />
 
           <SelectedBeast
           show={this.state.show}
@@ -39,6 +51,7 @@ class App extends React.Component {
           <Main
           newData={this.state.data}
           handleModalShow={this.handleModalShow}
+          selectedHorn={this.state.selectedHorn}
           />
 
         </header>

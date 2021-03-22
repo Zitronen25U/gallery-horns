@@ -1,5 +1,5 @@
 import React from 'react';
-import './beast.css';
+import './css/beast.css';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -23,7 +23,7 @@ class HornedBeasts extends React.Component {
         <CardGroup >
           <Card>
               <Card.Title>{this.props.title}</Card.Title>
-              <Card.Img variant="top" src={this.props.src} width={300} />
+              <Card.Img variant="top" src={this.props.src} width={300} height={200} />
               <Card.Body>
               <Card.Text id="beastText">
                 {this.props.description}

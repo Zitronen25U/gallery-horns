@@ -1,25 +1,37 @@
 import React from 'react';
 import HornedBeasts from './hornedbeasts';
-import data from './data.json';
-import CardDeck from 'react-bootstrap/CardDeck';
 
 
 class Main extends React.Component{
-
   render(){
+
+    const newDataVal = this.props.newData;
+
+    const filteredHorns = newDataVal.filter((beast) => {
+      if(this.props.selectedHorn === "ALL") {
+        return beast;
+      } else {
+        return beast.horns === this.props.selectedHorn;
+      }
+    })
+
     return(
       <div id="beasts">
         <>
-        {this.props.newData.map((beast, index) => (
-           <HornedBeasts 
-            key={index}
+        {filteredHorns.map((beast, index) => (
+          <div key={index}>
+            <HornedBeasts 
             width={100}
             src = {beast.image_url}
             title = {beast.title}
             description = {beast.description}
             handleModalShow={this.props.handleModalShow}
             index={index}
+            horns= {beast.horns}
+            selectedHorn = {this.props.selectedHorn}
             />
+          </div>
+
         )) 
       }
       </>
